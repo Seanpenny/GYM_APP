@@ -1,0 +1,35 @@
+PROMPT FOR ADMIN APP AI ASSISTANT:
+
+Transform my entire admin application to use the Forever Fit Boxing gym green theme. Replace ALL blue colors with lime green (#39FF14 / Color(0xFF39FF14)) throughout the entire app.
+
+SPLASH SCREEN:
+- Use the image file "splash enhanced.jpeg" as full-screen background with BoxFit.cover
+- Add dark overlay (50% black opacity) for text readability
+- Add "Prototype 1.0" text at bottom center in white with shadows, or create a lime green button with white text
+- Duration: 6.5-8.5 seconds with smooth fade-in animation (1.5 seconds)
+- Apply color enhancement: boost green channel to 1.18x, red/blue to 1.12x, add 0.02 brightness offset
+
+COLOR REPLACEMENTS:
+- Navigation bar: Lime green background (#39FF14), white text/icons for active items, white70 for inactive
+- All buttons: Lime green background with white text, rounded corners (16-18px)
+- All text buttons/links: Lime green text color
+- Input fields: Lime green focused border (2px width)
+- Checkboxes/switches: Lime green active color with white check
+- Progress bars: Lime green for active progress
+- Cards/containers: Lime green accents, icons, and action buttons
+- Tables: Lime green for selected rows and highlights
+- All gradients: Replace blue with lime green variations
+- App bars/headers: Lime green background or white with lime green accents
+- Sidebar/drawer: Lime green for active menu items
+- Badges/tags: Lime green for success/active states
+- Loading indicators: Lime green color
+
+STYLING:
+- Button corners: 16-18px radius
+- Text on green: White with shadows for visibility
+- Text on images: White with black shadows
+- Consistent shadows and elevation throughout
+- Smooth color transitions for state changes
+
+Apply this green theme systematically to every screen, component, and UI element. The goal is a cohesive lime green brand identity matching the Forever Fit Boxing gym mobile app.
+

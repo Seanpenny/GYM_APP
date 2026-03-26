@@ -1,0 +1,44 @@
+FOREVER FIT BOXING GYM - ADMIN APP COLOR SCHEME & LOOK & FEEL PROMPT
+
+PRIMARY COLOR:
+- Lime Green: #39FF14 (RGB: 57, 255, 20)
+- Use this color for ALL primary elements, buttons, active states, highlights, and brand identity
+
+COLOR APPLICATION:
+- Replace ALL blue colors with lime green (#39FF14)
+- Navigation bars: Lime green background with white text/icons
+- Buttons: Lime green background (#39FF14) with white text, rounded corners (16-18px)
+- Links/Text buttons: Lime green text color
+- Input fields: Lime green focused borders (2px width)
+- Checkboxes/Switches: Lime green active color with white checkmarks
+- Progress bars: Lime green for active progress
+- Selected states: Lime green background or text
+- Icons: Lime green for active/selected states
+- Badges/Tags: Lime green for success/active states
+
+TYPOGRAPHY:
+- Font family: Use modern, clean sans-serif fonts (Inter, Roboto, or similar)
+- Headings: Bold (700 weight), clean and modern
+- Body text: Regular weight (400), readable
+- Button text: Semi-bold (600 weight), white on green backgrounds
+- Text colors: White on green backgrounds, dark on light backgrounds
+- Ensure high contrast for readability
+
+VISUAL STYLE:
+- Rounded corners: 16-18px for buttons and cards
+- Shadows: Subtle shadows for depth and elevation
+- Spacing: Generous padding and margins for clean layout
+- Borders: Thin borders (1-2px) in lime green for focus states
+- Gradients: Use lime green variations (full opacity to 80-90% opacity)
+
+OVERALL AESTHETIC:
+- Modern, clean, and professional
+- High energy and vibrant (reflecting gym/fitness brand)
+- Consistent use of lime green throughout
+- White and dark colors for text/backgrounds
+- Smooth transitions and animations
+- Polished, premium feel
+
+Apply this lime green (#39FF14) color scheme consistently across all screens, components, and UI elements in the admin app.
+
+
