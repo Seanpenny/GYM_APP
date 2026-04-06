@@ -57,16 +57,17 @@ class _GeorgeLootsAppState extends State<GeorgeLootsApp> {
               maxScaleFactor: 1.15,
             );
 
-            Widget content = MediaQuery(
+            final baseContent = MediaQuery(
               data: mediaQuery.copyWith(textScaler: clampedScaler),
               child: child ?? const SizedBox.shrink(),
             );
+            Widget content = baseContent;
 
             if (kIsWeb) {
               content = LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth <= 700) {
-                    return content;
+                    return baseContent;
                   }
 
                   return ColoredBox(
@@ -74,7 +75,7 @@ class _GeorgeLootsAppState extends State<GeorgeLootsApp> {
                     child: Center(
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 520),
-                        child: ClipRect(child: content),
+                        child: ClipRect(child: baseContent),
                       ),
                     ),
                   );

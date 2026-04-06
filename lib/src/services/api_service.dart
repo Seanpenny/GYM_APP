@@ -1,9 +1,25 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  // Current dev machine IP for physical-device testing on the same Wi-Fi.
-  static const String baseUrl = 'http://192.168.0.34:3000';
+  // On web, GitHub Pages needs a public API URL supplied at build time.
+  static const String _webBaseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: '',
+  );
+  static const String _mobileBaseUrl = 'http://192.168.0.34:3000';
+
+  static String get baseUrl => kIsWeb ? _webBaseUrl : _mobileBaseUrl;
+
+  static Map<String, dynamic>? _missingBaseUrlError() {
+    if (baseUrl.isNotEmpty) return null;
+    return {
+      'success': false,
+      'error':
+          'API base URL is not configured for web deployment. Rebuild with --dart-define=API_BASE_URL=https://your-api-host',
+    };
+  }
 
   static Future<Map<String, dynamic>> signup({
     required String email,
@@ -11,6 +27,9 @@ class ApiService {
     required String password,
   }) async {
     try {
+      final configError = _missingBaseUrlError();
+      if (configError != null) return configError;
+
       final response = await http.post(
         Uri.parse('$baseUrl/api/mobile/signup'),
         headers: {'Content-Type': 'application/json'},
@@ -48,6 +67,9 @@ class ApiService {
     required String password,
   }) async {
     try {
+      final configError = _missingBaseUrlError();
+      if (configError != null) return configError;
+
       final response = await http.post(
         Uri.parse('$baseUrl/api/mobile/login'),
         headers: {'Content-Type': 'application/json'},
