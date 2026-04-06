@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../services/session_service.dart';
 
-// Lime green color matching the auth screen
-const Color limeGreen = Color(0xFF39FF14);
+const Color accentGreen = Color(0xFF7ED957);
 const Color charcoalBlack = Color(0xFF0B0D10);
-const Color deepCharcoal = Color(0xFF14181D);
+const Color deepCharcoal = Color(0xFF161A20);
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
   late Animation<double> _logoScaleAnimation;
-  late Animation<double> _glowAnimation;
+  late Animation<double> _pulseAnimation;
 
   @override
   void initState() {
@@ -44,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen>
       ),
     );
 
-    _glowAnimation = Tween<double>(begin: 0.45, end: 1.0).animate(
+    _pulseAnimation = Tween<double>(begin: 0.92, end: 1.0).animate(
       CurvedAnimation(
         parent: _fadeController,
         curve: Curves.easeInOut,
@@ -74,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen>
     final mediaQuery = MediaQuery.of(context);
     final size = mediaQuery.size;
     final shortestSide = size.shortestSide;
-    final logoSize = shortestSide < 380 ? shortestSide * 0.62 : shortestSide * 0.56;
+    final emblemSize = shortestSide < 380 ? 112.0 : 132.0;
 
     return Scaffold(
       body: AnimatedBuilder(
@@ -104,13 +103,13 @@ class _SplashScreenState extends State<SplashScreen>
                       height: size.width * 0.7,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: limeGreen.withValues(
-                          alpha: 0.08 * _glowAnimation.value,
+                        color: accentGreen.withValues(
+                          alpha: 0.06 * _pulseAnimation.value,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: limeGreen.withValues(
-                              alpha: 0.14 * _glowAnimation.value,
+                            color: accentGreen.withValues(
+                              alpha: 0.1 * _pulseAnimation.value,
                             ),
                             blurRadius: 120,
                             spreadRadius: 18,
@@ -127,13 +126,13 @@ class _SplashScreenState extends State<SplashScreen>
                       height: size.width * 0.5,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: limeGreen.withValues(
-                          alpha: 0.05 * _glowAnimation.value,
+                        color: accentGreen.withValues(
+                          alpha: 0.04 * _pulseAnimation.value,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: limeGreen.withValues(
-                              alpha: 0.1 * _glowAnimation.value,
+                            color: accentGreen.withValues(
+                              alpha: 0.08 * _pulseAnimation.value,
                             ),
                             blurRadius: 100,
                             spreadRadius: 14,
@@ -155,10 +154,14 @@ class _SplashScreenState extends State<SplashScreen>
                             child: Transform.scale(
                               scale: _logoScaleAnimation.value,
                               child: Container(
-                                width: logoSize,
-                                height: logoSize,
+                                width: emblemSize,
+                                height: emblemSize,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
+                                  color: const Color(0xFF12161C),
+                                  border: Border.all(
+                                    color: Colors.white.withValues(alpha: 0.08),
+                                  ),
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.black.withValues(alpha: 0.28),
@@ -166,27 +169,25 @@ class _SplashScreenState extends State<SplashScreen>
                                       offset: const Offset(0, 10),
                                     ),
                                     BoxShadow(
-                                      color: limeGreen.withValues(
-                                        alpha: 0.12 * _glowAnimation.value,
+                                      color: accentGreen.withValues(
+                                        alpha: 0.12 * _pulseAnimation.value,
                                       ),
                                       blurRadius: 36,
                                       spreadRadius: 3,
                                     ),
                                   ],
                                 ),
-                                child: ClipOval(
-                                  child: Image.asset(
-                                    'assets/images/GEORGELOOTS GYM IMAGE FOR SPLASH.jpg',
-                                    fit: BoxFit.cover,
-                                    filterQuality: FilterQuality.high,
-                                  ),
+                                child: Icon(
+                                  Icons.fitness_center_rounded,
+                                  size: emblemSize * 0.42,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
                           ),
                           const SizedBox(height: 28),
                           Text(
-                            'George Loots Gym',
+                            'Gym App',
                             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.headlineSmall
                                 ?.copyWith(
@@ -197,7 +198,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Hardcore bodybuilding. Premium member access.',
+                            'Member access, check-ins, and training in one place.',
                             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.bodyMedium
                                 ?.copyWith(
@@ -218,14 +219,14 @@ class _SplashScreenState extends State<SplashScreen>
                                         Colors.white.withValues(alpha: 0.12),
                                     valueColor:
                                         const AlwaysStoppedAnimation<Color>(
-                                      limeGreen,
+                                      accentGreen,
                                     ),
                                   ),
                                 ),
                               ),
                               const SizedBox(height: 14),
                               Text(
-                                'Loading your training space',
+                                'Preparing your gym experience',
                                 style: Theme.of(context).textTheme.bodySmall
                                     ?.copyWith(color: Colors.white60),
                               ),

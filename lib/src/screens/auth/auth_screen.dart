@@ -96,17 +96,49 @@ class _AuthScreenState extends State<AuthScreen>
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
-          Image.asset(
-            'assets/images/GEORGELOOTS GYM IMAGE FOR SPLASH.jpg',
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) {
-              debugPrint('Auth screen image error: $error');
-              return Container(color: Colors.black);
-            },
+          DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  const Color(0xFF171B21),
+                  Colors.black,
+                ],
+              ),
+            ),
           ),
-          // Dark overlay for readability
-          Container(color: Colors.black.withValues(alpha: 0.6)),
+          Positioned(
+            top: -80,
+            right: -40,
+            child: Container(
+              width: 220,
+              height: 220,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: limeGreen.withValues(alpha: 0.06),
+                boxShadow: [
+                  BoxShadow(
+                    color: limeGreen.withValues(alpha: 0.1),
+                    blurRadius: 100,
+                    spreadRadius: 8,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -100,
+            left: -60,
+            child: Container(
+              width: 240,
+              height: 240,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withValues(alpha: 0.03),
+              ),
+            ),
+          ),
           // Content
           SafeArea(
             child: SingleChildScrollView(
@@ -118,7 +150,7 @@ class _AuthScreenState extends State<AuthScreen>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome to George Loots Gym',
+                    'Welcome to Gym App',
                     style: SafeFonts.interTight(
                       fontSize: headingSize,
                       fontWeight: FontWeight.w700,
@@ -128,7 +160,7 @@ class _AuthScreenState extends State<AuthScreen>
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Secure login with one-tap biometrics or choose your method of the day.',
+                    'Secure login for members, check-ins, and daily gym access.',
                     style: theme.textTheme.bodyLarge?.copyWith(
                       color: Colors.white70,
                     ),

@@ -46,7 +46,7 @@ class _GeorgeLootsAppState extends State<GeorgeLootsApp> {
         final theme = snapshot.data ?? ThemeData.light();
         
         return MaterialApp(
-          title: 'George Loots Gym',
+          title: 'Gym App',
           debugShowCheckedModeBanner: false,
           theme: theme,
           scrollBehavior: const _AppScrollBehavior(),
